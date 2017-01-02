@@ -14,7 +14,7 @@ public class RtspServer implements Closeable {
     private static final int SERVER_ACCEPT_TIMEOUT_MS = 5000;
     private static final int CLIENT_READ_TIMEOUT_MS = 15000;
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     public interface Listener {
 
