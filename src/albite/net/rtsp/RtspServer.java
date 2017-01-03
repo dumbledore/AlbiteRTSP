@@ -245,6 +245,11 @@ public class RtspServer implements Closeable {
 
                     // Send the response
                     response.send(client.getOutputStream());
+
+                    // FIXME: Wait for the client to read the response, before
+                    // closing the socket, or it would get and EOF before it
+                    // had read the data. Sounds fishy given this is TCP.
+                    Thread.sleep(500);
                 } catch (Throwable tr) {
                     Log.w(TAG, "Failed responding to request", tr);
                     mListener.onRequestError(tr);
